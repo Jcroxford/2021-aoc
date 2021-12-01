@@ -1,0 +1,22 @@
+{
+  "name": "2021-aoc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": "git+https://github.com/Jcroxford/2021-aoc.git",
+  "keywords": [],
+  "author": "Jesse Croxford <jcroxford@simplenexus.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jcroxford/2021-aoc/issues"
+  },
+  "homepage": "https://github.com/Jcroxford/2021-aoc#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.2"
+  }
+}
