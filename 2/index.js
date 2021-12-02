@@ -9,19 +9,9 @@
     .map(x => x.split(' '))
     .map(([direction, num]) => ([ direction, Number(num)]))
     .forEach(([direction, num]) => {
-      switch (direction) {
-        case 'forward':
-          horizontal += num
-          break;
-
-        case 'up':
-          depth -= num
-          break;
-
-        case 'down':
-          depth += num
-          break;
-      }
+      if(direction == 'forward') horizontal += num
+      if(direction == 'up') depth -= num
+      if(direction == 'down') depth += num
     })
 
     return depth * horizontal
@@ -39,20 +29,12 @@ function part2(input) {
     .map(x => x.split(' '))
     .map(([direction, num]) => ([ direction, Number(num)]))
     .forEach(([direction, num]) => {
-      switch (direction) {
-        case 'forward':
-          horizontal += num
-          depth += aim * num
-          break;
-
-        case 'up':
-          aim -= num
-          break;
-
-        case 'down':
-          aim += num
-          break;
+      if(direction == 'forward') {
+        horizontal += num
+        depth += aim * num
       }
+      if(direction == 'up') aim -= num
+      if(direction == 'down') aim += num
     })
 
     return depth * horizontal
