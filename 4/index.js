@@ -1,22 +1,7 @@
-// bingo can only happen in row or column that the newest number was marked.
-// this function checks only those
-function checkForBingo(card, matchedRowIndex, matchedColIndex) {
-  if(!card[matchedRowIndex].filter(c => !c.marked).length) return card
-
-  const verticalRow = card.map(row => row[matchedColIndex])
-  if(!verticalRow.filter(c => !c.marked).length) return card
-
-  return null
-}
-
-function sumUnmarkedNumbers(card) {
-  return card.reduce((total, row) => total + row.reduce((total, col) => col.marked ? total : total + col.number, 0), 0)
-}
-
 /**
  * @param {string} input
  */
-function prepareData(input) {
+ function prepareData(input) {
   let [ numbersToBeDrawn, ...bingocards ] = input.split(`\n\n`)
 
   numbersToBeDrawn = numbersToBeDrawn.split(',').map(Number)
@@ -45,6 +30,21 @@ function playRound(card, drawnNumber) {
   }
 
   return null
+}
+
+// bingo can only happen in row or column that the newest number was marked.
+// this function checks only those
+function checkForBingo(card, matchedRowIndex, matchedColIndex) {
+  if(!card[matchedRowIndex].filter(c => !c.marked).length) return card
+
+  const verticalRow = card.map(row => row[matchedColIndex])
+  if(!verticalRow.filter(c => !c.marked).length) return card
+
+  return null
+}
+
+function sumUnmarkedNumbers(card) {
+  return card.reduce((total, row) => total + row.reduce((total, col) => col.marked ? total : total + col.number, 0), 0)
 }
 
 /**
