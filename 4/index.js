@@ -29,7 +29,7 @@ function playRound(card, drawnNumber) {
     }
   }
 
-  return null
+  return { gotBingo: false }
 }
 
 // bingo can only happen in row or column that the newest number was marked.
