@@ -1,7 +1,7 @@
 /**
  * @param {string} input
  */
- function part1(input) {
+function part1(input) {
   let depth = 0
   let horizontal = 0
   input

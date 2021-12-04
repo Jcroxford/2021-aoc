@@ -7,7 +7,7 @@
 /**
  * @param {string} input
  */
- function part1(input) {
+function part1(input) {
    const gamma = []
    const epsilon = []
    const rows = input.split('\n')
