@@ -51,14 +51,8 @@ function findVents(includeDiagnals = false) {
   }
 }
 
-/**
- * @param {string} input
- */
 const part1 = findVents()
 
-/**
- * @param {string} input
- */
 const part2 = findVents(/* includeDiagnals */true)
 
 module.exports = { part1, part2 }
