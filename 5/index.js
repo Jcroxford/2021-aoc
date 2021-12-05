@@ -42,7 +42,7 @@ function findVents(includeDiagonals = false) {
 
           return grid
         },
-        new Array(GRID_SIZE).fill(null).map(x => new Array(GRID_SIZE).fill(0)) // change arra
+        new Array(GRID_SIZE).fill(null).map(x => new Array(GRID_SIZE).fill(0))
       )
         // .map(x => x.join('')).join('\n') // to visualize graph comment this in and comment out below lines
       .map(y => y.filter(x => x > 1))
