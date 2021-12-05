@@ -1,7 +1,7 @@
 /**
  * @param {string} input
  */
- function prepareData(input) {
+function prepareData(input) {
   let [ numbersToBeDrawn, ...bingocards ] = input.split(`\n\n`)
 
   numbersToBeDrawn = numbersToBeDrawn.split(',').map(Number)
