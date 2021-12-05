@@ -31,12 +31,12 @@ function findVents(includeDiagonals = false) {
             const largestDistance = Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2))
             let currentX = Math.min(x1, x2) // always start with lowest X to simplify
             let currentY = x1 < x2 ? y1 : y2
-            const yDirection = currentY == Math.max(y1, y2) ? 'down' : 'up'
+            const yDirection = currentY == Math.max(y1, y2) ? -1 : 1
 
             for (let i = 0; i <= largestDistance; i++) {
               grid[currentY][currentX] = grid[currentY][currentX] == '.' ? 1 : grid[currentY][currentX] + 1
               currentX++
-              yDirection == 'down' ? currentY-- : currentY++
+              currentY = currentY + yDirection
             }
           }
 
