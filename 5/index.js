@@ -1,7 +1,7 @@
 /**
- * @param {boolean} includeDiagnals
+ * @param {boolean} includeDiagonals
  */
-function findVents(includeDiagnals = false) {
+function findVents(includeDiagonals = false) {
   /**
    * @param {string} input
    */
@@ -27,7 +27,7 @@ function findVents(includeDiagnals = false) {
             for(let i = lowest; i <= highest; i++) {
               grid[y1][i] = grid[y1][i] == '.' ? 1 : grid[y1][i] + 1
             }
-          } else if(includeDiagnals) {
+          } else if(includeDiagonals) {
             const largestDistance = Math.max(Math.abs(x1 - x2), Math.abs(y1 - y2))
             let currentX = Math.min(x1, x2) // always start with lowest X to simplify
             let currentY = x1 < x2 ? y1 : y2
@@ -53,6 +53,6 @@ function findVents(includeDiagnals = false) {
 
 const part1 = findVents()
 
-const part2 = findVents(/* includeDiagnals */true)
+const part2 = findVents(/* includeDiagonals */true)
 
 module.exports = { part1, part2 }
