@@ -15,16 +15,9 @@ function calculateSmallestDistance(useSeriesSum = false) {
      .split(',')
      .map(Number)
 
-    const max = Math.max(...data)
     let smallestFuelUsed = Infinity
-    let current = 0
-    for (let step = 0; step <= max; step++) {
-      current = 0
-      for(let num of data) {
-        const distance = Math.abs(num - step)
-        current += useSeriesSum ? sumSeries(distance) : distance
-        if(current > smallestFuelUsed) break
-      }
+    for (let step = 0; step <= Math.max(...data); step++) {
+      const current = data.reduce((totalFuel, num) => (useSeriesSum ? sumSeries(Math.abs(num - step)) : Math.abs(num - step)) + totalFuel, 0)
       if(current < smallestFuelUsed) smallestFuelUsed = current
     }
 
