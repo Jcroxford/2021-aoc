@@ -25,7 +25,6 @@ function part2(input) {
     .map(([input, output]) => ([ input.split(' '), output.split(' ')]))
     .map(([input, output]) => ([ input.map(x => x.split('').sort().join('')), output.map(x => x.split('').sort().join(''))]))
     .map(([input, output]) => {
-      // 1, 4, 7, 8 given
       const [ one, seven, four, eight ] = input.filter(x => [2,3,4,7].includes(x.length)).sort((a,b) => a.length - b.length)
       let leftOvers = input.filter(x => ![2,3,4,7].includes(x.length))
 
