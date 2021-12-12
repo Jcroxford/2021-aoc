@@ -1,17 +1,19 @@
 function solve(allowDuplicateSmallCaves = false) {
   return function (input) {
     const connections = input
-    .split('\n')
-    .map(x => x.split('-'))
-    .reduce((dict, [ startCave, endCave ]) => {
-      if(!dict[startCave]) dict[startCave] = []
-      if(!dict[endCave] && endCave != 'end') dict[endCave] = []
+      .split('\n')
+      .map(x => x.split('-'))
+      .reduce((dict, [ startCave, endCave ]) => {
+        // add all paths each cave can traverse too except 'start'. Also don't include any paths from end
+        // since that's where we stop. dict looks something like { 'start': ['A', 'b'], 'A': ['b', 'c', 'end'], ... }
+        if(!dict[startCave] && startCave != 'end') dict[startCave] = []
+        if(!dict[endCave] && endCave != 'end') dict[endCave] = []
 
-      if(endCave != 'start' && startCave != 'end') dict[startCave].push(endCave)
-      if(endCave != 'end' && startCave != 'start') dict[endCave].push(startCave)
+        if(endCave != 'start' && startCave != 'end') dict[startCave].push(endCave)
+        if(endCave != 'end' && startCave != 'start') dict[endCave].push(startCave)
 
-      return dict
-    }, {})
+        return dict
+      }, {})
 
   return traversePath(connections, 'start', allowDuplicateSmallCaves)
   }
