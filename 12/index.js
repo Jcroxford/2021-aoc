@@ -21,8 +21,8 @@ function traversePath(connections, currentCave, allowDuplicateSmallCaves, visite
   if(currentCave == 'end') return 1
 
   return connections[currentCave].reduce((total, nextCave) => {
-    const foo = (!allowDuplicateSmallCaves) || (allowDuplicateSmallCaves && hasVisitedSmallCaveMoreThanOnce(visitedCaves))
-    if(visitedCaves.includes(currentCave) && currentCave.match(/[a-z]+/) && foo) return total
+    const failsSmallCaveRules = (!allowDuplicateSmallCaves) || (allowDuplicateSmallCaves && hasVisitedSmallCaveMoreThanOnce(visitedCaves))
+    if(visitedCaves.includes(currentCave) && currentCave.match(/[a-z]+/) && failsSmallCaveRules) return total
     return total + traversePath(connections, nextCave, allowDuplicateSmallCaves, [ ...visitedCaves, currentCave ])
   }, 0)
 }
