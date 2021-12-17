@@ -73,7 +73,7 @@ class BitParser {
 /**
  * @param {string} input
  */
- function part1(input) {
+function part1(input) {
   let binaryBlob = parseInput(input)
 
   const bitParser = new BitParser(binaryBlob)
